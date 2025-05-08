@@ -31,6 +31,7 @@
         .nav-menu {
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
         .nav-menu a {
@@ -153,6 +154,30 @@
             background: #8a7c88;
         }
 
+        .logout-form {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logout-button {
+            background: #c94c4c;
+            color: #f2e9e4;
+            border: none;
+            padding: 8px 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logout-button:hover {
+            background: #b43c3c;
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -191,9 +216,9 @@
             <a href="{{route('courses.index')}}">Courses</a>
             <a href="{{route('attendance.view')}}">Attendance</a>
             <a href="{{route('grades.view')}}">Grades</a>
-            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
                 @csrf
-                <button type="submit" class="btn-danger" style="background: none; border: none; color: #f2e9e4; cursor: pointer; padding: 8px 15px; font-size: 1rem; border-radius: 5px;">Logout</button>
+                <button type="submit" class="logout-button">Logout</button>
             </form>
         </div>
     </div>

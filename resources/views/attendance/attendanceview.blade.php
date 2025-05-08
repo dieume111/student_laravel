@@ -240,7 +240,7 @@
             <tbody>
                 @foreach($attendances as $attendance)
                     <tr>
-                        <td>{{ $attendance->attendance_date->format('Y-m-d') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($attendance->attendance_date)->format('Y-m-d') }}</td>
                         <td>{{ $attendance->student->first_name }} {{ $attendance->student->last_name }}</td>
                         <td>{{ $attendance->course->course_name }}</td>
                         <td class="status-{{ $attendance->status }}">{{ ucfirst($attendance->status) }}</td>
