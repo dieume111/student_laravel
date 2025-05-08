@@ -191,9 +191,9 @@
             <a href="{{route('courses.index')}}">Courses</a>
             <a href="{{route('attendance.view')}}">Attendance</a>
             <a href="{{route('grades.view')}}">Grades</a>
-            <a href="{{ route('logout') }}" class="btn-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                 @csrf
+                <button type="submit" class="btn-danger" style="background: none; border: none; color: #f2e9e4; cursor: pointer; padding: 8px 15px; font-size: 1rem; border-radius: 5px;">Logout</button>
             </form>
         </div>
     </div>

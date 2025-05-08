@@ -187,7 +187,7 @@
                         <option value="">All Students</option>
                         @foreach($students as $student)
                             <option value="{{ $student->student_id }}" {{ request('student_id') == $student->student_id ? 'selected' : '' }}>
-                                {{ $student->first_name }} {{ $student->last_name }}
+                                {{ $student->First_name }} {{ $student->Last_name }}
                             </option>
                         @endforeach
                     </select>
@@ -239,7 +239,7 @@
             <tbody>
                 @foreach($grades as $grade)
                     <tr>
-                        <td>{{ $grade->student->first_name }} {{ $grade->student->last_name }}</td>
+                        <td>{{ $grade->student->First_name }} {{ $grade->student->Fast_name }}</td>
                         <td>{{ $grade->course->course_name }}</td>
                         <td>{{ $grade->exam_date->format('Y-m-d') }}</td>
                         <td>{{ $grade->marks }}%</td>

@@ -3,131 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Login</title>
+    <title>Welcome - School Records System</title>
     <style>
-        /* Base Styles */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ADD8E6;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
 
-        /* Card Container */
-        .login-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 400px;
+        .header {
+            background: #22223b;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
         }
 
-        /* Typography */
-        .login-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: #333;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Form Elements */
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .input-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #555;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .input-field:focus {
-            outline: none;
-            border-color: #888;
-        }
-
-        /* Button */
-        .login-button {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .login-button:hover {
-            background-color: #222;
-        }
-
-        /* Footer Link */
-        .footer-link {
-            text-align: center;
-            margin-top: 1.5rem;
-            color: #666;
-        }
-
-        .footer-link a {
-            color: #333;
-            font-weight: 500;
+        .logo {
+            color: #f2e9e4;
+            font-size: 1.8rem;
+            font-weight: bold;
             text-decoration: none;
         }
 
-        .footer-link a:hover {
+        .welcome-section {
+            text-align: center;
+            margin-top: 120px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .welcome-section h1 {
+            color: #22223b;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h4 {
+            color: #4a4e69;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        main {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #22223b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a4e69;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #9a8c98;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #9a8c98;
+            color: #f2e9e4;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #8a7c88;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #fff5f5;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .success-message {
+            color: #28a745;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f0fff4;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #4a4e69;
+        }
+
+        .register-link a {
+            color: #9a8c98;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .register-link a:hover {
             text-decoration: underline;
         }
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .login-card {
-                padding: 1.5rem;
+        @media (max-width: 768px) {
+            .welcome-section {
+                margin-top: 100px;
+            }
+
+            .welcome-section h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-section h4 {
+                font-size: 1.1rem;
+            }
+
+            main {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="login-card">
-        <h1 class="login-title">System Login</h1>
+    <header class="header">
+        <div class="nav-container">
+            <a href="{{ route('home') }}" class="logo">Class Records System</a>
+        </div>
+    </header>
+
+    <div class="welcome-section">
+        <h1>This is a class management system</h1>
+        <h4>Enter your Username and Your Password to proceed with the system</h4>
+    </div>
+
+    <main>
+        <h1>Login</h1>
         
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="input-group">
-                <label for="user_name" class="input-label">Username</label>
-                <input type="text" id="user_name" name="user_name" class="input-field" required>
+            @if($errors->any())
+                <div class="error-message">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if(session('success'))
+                <div class="success-message">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <div class="form-group">
+                <label for="user_name">Username</label>
+                <input type="text" id="user_name" name="user_name" required>
             </div>
-            
-            <div class="input-group">
-                <label for="password" class="input-label">Password</label>
-                <input type="password" id="password" name="password" class="input-field" required>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            
-            <button type="submit" class="login-button">
-                Sign In
-            </button>
+
+            <button type="submit">Sign In</button>
         </form>
-        
-        <p class="footer-link">
-            Don't have an account? <a href="{{ route('register') }}">Register</a>
+
+        <p class="register-link">
+            Don't have an account? <a href="{{ route('register') }}">Register here</a>
         </p>
-    </div>
+    </main>
 </body>
 </html>
